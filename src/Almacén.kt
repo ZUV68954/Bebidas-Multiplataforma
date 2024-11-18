@@ -23,11 +23,10 @@ class Almacén {
     }
 
     fun eliminarBebida(id: Int) {
-        for (i in 0..<estantería.size) {
-            // Recorre la lista en orden inverso para evitar problemas al borrar bebidas
-            for (j in estantería[i].size - 1 downTo 0) {
-                if (estantería[i][j].getId() == id) {
-                    estantería[i].removeAt(j)
+        estantería.forEach { fila ->
+            fila.forEach { bebida ->
+                if (bebida.getId() == id) {
+                    fila.remove(bebida)
                 }
             }
         }
@@ -35,18 +34,18 @@ class Almacén {
 
 
     fun mostrarBebidas() {
-        for (i in 0..<estantería.size) {
-            for (j in 0..<estantería[i].size) {
-                println(estantería[i][j].toString())
+        estantería.forEach { fila ->
+            fila.forEach { bebida ->
+                println(bebida.toString())
             }
         }
     }
 
     fun calcularTotal(): Double {
         var total = 0.0
-        for (i in 0..<estantería.size) {
-            for (j in 0..<estantería[i].size) {
-                total += estantería[i][j].getPrecio()
+        estantería.forEach { fila ->
+            fila.forEach { bebida ->
+                total += bebida.getPrecio()
             }
         }
         return total
@@ -54,10 +53,10 @@ class Almacén {
 
     fun calcularTotal(marca: String): Double {
         var total = 0.0
-        for (i in 0..<estantería.size) {
-            for (j in 0..<estantería[i].size) {
-                if (estantería[i][j].getMarca() == marca) {
-                    total += estantería[i][j].getPrecio()
+        estantería.forEach { fila ->
+            fila.forEach { bebida ->
+                if (bebida.getMarca() == marca) {
+                    total += bebida.getPrecio()
                 }
             }
         }
@@ -66,8 +65,8 @@ class Almacén {
 
     fun calcularTotal(columna: Int): Double {
         var total = 0.0
-        for (j in 0..<estantería[columna].size) {
-            total += estantería[columna][j].getPrecio()
+        estantería[columna].forEach { bebida ->
+            total += bebida.getPrecio()
         }
         return total
     }
