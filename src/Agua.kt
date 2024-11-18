@@ -1,7 +1,7 @@
 class Agua(
     private var id: Int,
-    private val litros: Double,
-    private val precio: Double,
+    private val litros: Float,
+    private val precio: Float,
     private val marca: String,
     private val mineral: Boolean
 ) :
@@ -19,7 +19,7 @@ class Agua(
         return id
     }
 
-    override fun getPrecio(): Double {
+    override fun getPrecio(): Float {
         return precio
     }
 

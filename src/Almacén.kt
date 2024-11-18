@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 class Almacén {
     private val estantería: ArrayList<ArrayList<Bebida>> = arrayListOf(
         ArrayList(), ArrayList(), ArrayList(),
@@ -22,14 +24,16 @@ class Almacén {
         }
     }
 
-    fun eliminarBebida(id: Int) {
+    fun eliminarBebida(id: Int): Boolean {
         estantería.forEach { fila ->
             fila.forEach { bebida ->
                 if (bebida.getId() == id) {
                     fila.remove(bebida)
+                    return true
                 }
             }
         }
+        return false
     }
 
 
@@ -51,8 +55,8 @@ class Almacén {
         return total
     }
 
-    fun calcularTotal(marca: String): Double {
-        var total = 0.0
+    fun calcularTotal(marca: String): Float {
+        var total = 0f
         estantería.forEach { fila ->
             fila.forEach { bebida ->
                 if (bebida.getMarca() == marca) {
@@ -60,13 +64,25 @@ class Almacén {
                 }
             }
         }
+        if (total == 0f) {
+            println("La marca solicitada no exite.")
+            exitProcess(-1)
+        }
         return total
     }
 
-    fun calcularTotal(columna: Int): Double {
-        var total = 0.0
-        estantería[columna].forEach { bebida ->
+    fun calcularTotal(columna: Int): Float {
+        if (columna - 1 > 5 || columna - 1 < 0) {
+            println("La columna solicitada no existe.")
+            exitProcess(-1)
+        }
+        var total = 0f
+        estantería[columna - 1].forEach { bebida ->
             total += bebida.getPrecio()
+        }
+        if (total == 0f) {
+            println("No hay bebidas en esa columna.")
+            exitProcess(-1)
         }
         return total
     }

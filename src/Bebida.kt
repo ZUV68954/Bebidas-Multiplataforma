@@ -4,6 +4,6 @@ abstract class Bebida {
     }
 
     abstract fun getId(): Int
-    abstract fun getPrecio(): Double
+    abstract fun getPrecio(): Float
     abstract fun getMarca(): String
 }

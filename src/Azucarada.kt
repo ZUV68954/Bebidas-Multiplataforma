@@ -1,9 +1,9 @@
 class Azucarada(
     private var id: Int,
-    private val litros: Double,
-    private val precio: Double,
+    private val litros: Float,
+    private val precio: Float,
     private val marca: String,
-    private val porcentaje: Double,
+    private val porcentaje: Float,
     private val promoción: Boolean
 ) :
     Bebida() {
@@ -21,7 +21,7 @@ class Azucarada(
         return id
     }
 
-    override fun getPrecio(): Double {
+    override fun getPrecio(): Float {
         if (promoción) {
             return precio / 10
         }

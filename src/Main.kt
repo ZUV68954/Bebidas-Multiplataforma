@@ -1,11 +1,11 @@
 fun main() {
-    val bebida: Bebida = Agua(0, 4.0, 4.0, "Bezoya", true)
-    val bebida1: Bebida = Agua(1, 1.0, 4.0, "Aquabona", true)
+    val bebida: Bebida = Agua(0, 4F, 4F, "Bezoya", true)
+    val bebida1: Bebida = Agua(1, 1F, 4F, "Aquabona", true)
     val almacén = Almacén()
     almacén.agregarBebida(bebida)
     almacén.agregarBebida(bebida1)
     almacén.mostrarBebidas()
-    almacén.eliminarBebida(0)
+    println(almacén.eliminarBebida(0))
     almacén.mostrarBebidas()
-    println(almacén.calcularTotal())
+    println(almacén.calcularTotal("Aquabona"))
 }
