@@ -21,10 +21,14 @@ class Azucarada(
         return id
     }
 
-    fun getPrecio(): Double {
+    override fun getPrecio(): Double {
         if (promoción) {
             return precio / 10
         }
         return precio
+    }
+
+    override fun getMarca(): String {
+        return marca
     }
 }

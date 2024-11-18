@@ -18,4 +18,12 @@ class Agua(
     override fun getId(): Int {
         return id
     }
+
+    override fun getPrecio(): Double {
+        return precio
+    }
+
+    override fun getMarca(): String {
+        return marca
+    }
 }

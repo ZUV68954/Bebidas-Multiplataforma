@@ -41,4 +41,34 @@ class Almacén {
             }
         }
     }
+
+    fun calcularTotal(): Double {
+        var total = 0.0
+        for (i in 0..<estantería.size) {
+            for (j in 0..<estantería[i].size) {
+                total += estantería[i][j].getPrecio()
+            }
+        }
+        return total
+    }
+
+    fun calcularTotal(marca: String): Double {
+        var total = 0.0
+        for (i in 0..<estantería.size) {
+            for (j in 0..<estantería[i].size) {
+                if (estantería[i][j].getMarca() == marca) {
+                    total += estantería[i][j].getPrecio()
+                }
+            }
+        }
+        return total
+    }
+
+    fun calcularTotal(columna: Int): Double {
+        var total = 0.0
+        for (j in 0..<estantería[columna].size) {
+            total += estantería[columna][j].getPrecio()
+        }
+        return total
+    }
 }
