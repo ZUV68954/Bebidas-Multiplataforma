@@ -6,7 +6,7 @@ class Azucarada(
     private val porcentaje: Double,
     private val promoción: Boolean
 ) :
-    Bebida(id, litros, precio, marca) {
+    Bebida() {
     override fun toString(): String {
         return "La bebida es de tipo azucarada y contiene $litros de líquido, es de la marca $marca y contiene un $porcentaje" +
                 "de azúcar. Su precio es de $precio € y" +

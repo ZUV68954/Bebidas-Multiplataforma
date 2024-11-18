@@ -1,6 +1,6 @@
-abstract class Bebida(id: Int, litros: Double, precio: Double, marca: String) {
+abstract class Bebida {
     override fun toString(): String {
-        return "Algo"
+        return "Esto no lo deberías de ver nunca."
     }
 
     abstract fun getId(): Int

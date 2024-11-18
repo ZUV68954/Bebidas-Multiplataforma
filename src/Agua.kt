@@ -5,7 +5,7 @@ class Agua(
     private val marca: String,
     private val mineral: Boolean
 ) :
-    Bebida(id, litros, precio, marca) {
+    Bebida() {
     override fun toString(): String {
         return "La bebida son $litros litros de agua, tiene un precio de $precio € y la comercializa la marca $marca. " +
                 if (mineral) {
