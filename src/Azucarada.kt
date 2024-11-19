@@ -23,7 +23,7 @@ class Azucarada(
 
     override fun getPrecio(): Float {
         if (promoción) {
-            return precio / 10
+            return precio * 0.9f
         }
         return precio
     }
